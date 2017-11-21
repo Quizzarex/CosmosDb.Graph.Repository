@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+    
+    <metadata>
+        <id>CosmosDb.Graph.Repository</id>
+        <version>1.0.0-alpha</version>
+        <copyright>Copyright (c) 2017 Kent Stark Olsen</copyright>
+        <description>A light-weight .Net Standard/Framework library for CosmosDb graph repositories</description>
+        <authors>Kent Stark Olsen</authors>
+        <owners>Kent Stark Olsen</owners>
+
+        <projectUrl>https://github.com/Quizzarex/CosmosDb.Graph.NetStandard</projectUrl>
+        <licenseUrl>https://github.com/Quizzarex/CosmosDb.Graph.NetStandard/blob/master/LICENSE</licenseUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+
+        <tags>cosmosdb graph repository dot net standard framework</tags>
+
+        <dependencies>
+            <group targetFramework="net461">
+                <dependency id="Microsoft.Azure.Graphs" version="0.3.1-preview" />
+                <dependency id="Microsoft.Azure.DocumentDB" version="1.6.0" />
+            </group>
+            <group targetFramework="netstandard1.6">
+                <dependency id="Microsoft.Azure.Graphs" version="0.3.1-preview" />
+                <dependency id="Microsoft.Azure.DocumentDB.Core" version="1.6.0" />
+            </group>
+        </dependencies>
+    </metadata>
+
+    <files>
+        <file src="bin\Debug\net461\CosmosDb*.dll" target="lib\net461" />
+        <file src="bin\Debug\netstandard1.6\CosmosDb*.dll" target="lib\netstandard1.6" />
+    </files>
+
+</package>

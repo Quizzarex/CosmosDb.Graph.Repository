@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Src\CosmosDb.Graph.Interfaces\CosmosDb.Graph.Interfaces.csproj" />
+    <ProjectReference Include="..\..\Src\CosmosDb.Graph\CosmosDb.Graph.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>
