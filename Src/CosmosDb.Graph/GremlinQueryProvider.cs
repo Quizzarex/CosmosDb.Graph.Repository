@@ -167,6 +167,12 @@ namespace CosmosDb.Graph
             return GetEdgeQuery<T>(edge.SourceId, edge.TargetId);
         }
 
+        public string GetEdgesWithSourceId<T>(string sourceId) where T : EdgeBase
+            => $"g.E().hasLabel('{typeof(T).Name}').where(inV().has('id', '{sourceId}'))";
+
+        public string GetEdgesWithTargetId<T>(string targetId) where T : EdgeBase
+            => $"g.E().hasLabel('{typeof(T).Name}').where(outV().has('id', '{targetId}'))";
+
         public string GetEdgesQuery<T>() where T : EdgeBase 
             => $"g.E().hasLabel('{typeof(T).Name}')";
 

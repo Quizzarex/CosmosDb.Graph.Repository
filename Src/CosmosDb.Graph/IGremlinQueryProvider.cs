@@ -19,6 +19,8 @@ namespace CosmosDb.Graph
         string GetEdgeQuery(string id);
         string GetEdgeQuery<T>(string sourceId, string targetId) where T : EdgeBase;
         string GetEdgeQuery<T>(T edge) where T : EdgeBase;
+        string GetEdgesWithSourceId<T>(string sourceId) where T : EdgeBase;
+        string GetEdgesWithTargetId<T>(string targetId) where T : EdgeBase;
         string GetEdgesQuery<T>() where T : EdgeBase;
         string UpdateEdgeQuery<T>(T edge) where T : EdgeBase;
     }
