@@ -135,14 +135,14 @@ namespace CosmosDb.Graph
 
         protected async Task<IEnumerable<T>> GetEdgesWithSourceId<T>(string sourceId) where T : EdgeBase, new()
         {
-            var edges = (await ExecuteGremlinQuery<Edge>(_gremlinQueryProvider.GetEdgesWithSourceId<T>(sourceId))).ToArray();
+            var edges = (await ExecuteGremlinQuery<Edge>(_gremlinQueryProvider.GetEdgesWithSourceIdQuery<T>(sourceId))).ToArray();
 
             return edges.Select(edge => _edgeConverter.ToObject<T>(edge));
         }
 
         protected async Task<IEnumerable<T>> GetEdgesWithTargetId<T>(string targetId) where T : EdgeBase, new()
         {
-            var edges = (await ExecuteGremlinQuery<Edge>(_gremlinQueryProvider.GetEdgesWithTargetId<T>(targetId))).ToArray();
+            var edges = (await ExecuteGremlinQuery<Edge>(_gremlinQueryProvider.GetEdgesWithTargetIdQuery<T>(targetId))).ToArray();
 
             return edges.Select(edge => _edgeConverter.ToObject<T>(edge));
         }

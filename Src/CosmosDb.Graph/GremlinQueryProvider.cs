@@ -167,14 +167,14 @@ namespace CosmosDb.Graph
             return GetEdgeQuery<T>(edge.SourceId, edge.TargetId);
         }
 
-        public string GetEdgesWithSourceId<T>(string sourceId) where T : EdgeBase
+        public string GetEdgesWithSourceIdQuery<T>(string sourceId) where T : EdgeBase
         {
             if (string.IsNullOrEmpty(sourceId)) throw new ArgumentNullException(nameof(sourceId));
 
             return $"g.E().hasLabel('{typeof(T).Name}').where(inV().has('id', '{sourceId}'))";
         }
 
-        public string GetEdgesWithTargetId<T>(string targetId) where T : EdgeBase
+        public string GetEdgesWithTargetIdQuery<T>(string targetId) where T : EdgeBase
         {
             if (string.IsNullOrEmpty(targetId)) throw new ArgumentNullException(nameof(targetId));
 
