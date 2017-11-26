@@ -63,6 +63,18 @@ namespace CosmosDb.Graph.Tests
         public void GetEdge__PassingNullAndEmptyStringIds__AssertThrowArgumentNullException(string sourceId, string targetId)
             => Assert.ThrowsAsync<ArgumentNullException>(async () => await _sut.GetEdge<EdgeStub>(sourceId, targetId));
 
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        public void GetEdgesWithSourceId__PassingNullOrEmptyString__AssertThrowArgumentNullException(string sourceId)
+            => Assert.ThrowsAsync<ArgumentNullException>(async () => await _sut.GetEdgesWithSourceId<EdgeStub>(sourceId));
+
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        public void GetEdgesWithTargetId__PassingNullOrEmptyString__AssertThrowArgumentNullException(string targetId)
+            => Assert.ThrowsAsync<ArgumentNullException>(async () => await _sut.GetEdgesWithTargetId<EdgeStub>(targetId));
+
         [Fact]
         public void UpdateVertex__PassingNullVertex__AssertThrowArgumentNullException()
             => Assert.ThrowsAsync<ArgumentNullException>(async () => await _sut.UpdateVertex<VertexStub>(null));

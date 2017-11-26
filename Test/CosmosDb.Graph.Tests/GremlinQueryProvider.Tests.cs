@@ -298,6 +298,22 @@ namespace CosmosDb.Graph.Tests
             Assert.Equal($"g.V('{sourceId}').outE('{edge.GetType().Name}').where(inV().has('id', '{targetId}'))", query);
         }
 
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        public void GetEdgesWithSourceIdQuery__PassingNullOrEmptyString__AssertThrowArgumentNullException(string sourceId)
+        {
+            Assert.Throws<ArgumentNullException>(() => _sut.GetEdgesWithSourceIdQuery<EdgeStub>(sourceId));
+        }
+
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        public void GetEdgesWithTargetIdQuery__PassingNullOrEmptyString__AssertThrowArgumentNullException(string targetId)
+        {
+            Assert.Throws<ArgumentNullException>(() => _sut.GetEdgesWithTargetIdQuery<EdgeStub>(targetId));
+        }
+
         [Fact]
         public void GetEdgesQuery__NoParameters__AssertGremlinQuery()
         {
