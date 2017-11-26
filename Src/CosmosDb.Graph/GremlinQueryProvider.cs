@@ -171,14 +171,14 @@ namespace CosmosDb.Graph
         {
             if (string.IsNullOrEmpty(sourceId)) throw new ArgumentNullException(nameof(sourceId));
 
-            return $"g.E().hasLabel('{typeof(T).Name}').where(inV().has('id', '{sourceId}'))";
+            return $"g.E().hasLabel('{typeof(T).Name}').where(outV().has('id', '{sourceId}'))";
         }
 
         public string GetEdgesWithTargetIdQuery<T>(string targetId) where T : EdgeBase
         {
             if (string.IsNullOrEmpty(targetId)) throw new ArgumentNullException(nameof(targetId));
 
-            return $"g.E().hasLabel('{typeof(T).Name}').where(outV().has('id', '{targetId}'))";
+            return $"g.E().hasLabel('{typeof(T).Name}').where(inV().has('id', '{targetId}'))";
         }
 
         public string GetEdgesQuery<T>() where T : EdgeBase 
