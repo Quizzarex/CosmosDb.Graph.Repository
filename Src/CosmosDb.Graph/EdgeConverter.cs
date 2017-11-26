@@ -16,8 +16,8 @@ namespace CosmosDb.Graph
             var obj = new T 
             { 
                 id = edge.Id.ToString(),
-                SourceId = edge.InVertexId.ToString(),
-                TargetId = edge.OutVertexId.ToString()
+                SourceId = edge.OutVertexId.ToString(),
+                TargetId = edge.InVertexId.ToString()
             };
 
             foreach (var edgeProperty in edge.GetProperties())
