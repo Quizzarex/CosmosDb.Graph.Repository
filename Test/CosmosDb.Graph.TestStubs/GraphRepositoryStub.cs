@@ -38,6 +38,12 @@ namespace CosmosDb.Graph.TestStubs
         
         public new async Task<T> GetEdge<T>(string sourceId, string targetId) where T : EdgeBase, new()
             => await base.GetEdge<T>(sourceId, targetId);
+
+        public new async Task<IEnumerable<T>> GetEdgesWithSourceId<T>(string sourceId) where T : EdgeBase, new()
+            => await base.GetEdgesWithSourceId<T>(sourceId);
+
+        public new async Task<IEnumerable<T>> GetEdgesWithTargetId<T>(string targetId) where T : EdgeBase, new()
+            => await base.GetEdgesWithTargetId<T>(targetId);
         
         public new async Task<IEnumerable<T>> GetAllEdges<T>() where T : EdgeBase, new()
             => await base.GetAllEdges<T>();
