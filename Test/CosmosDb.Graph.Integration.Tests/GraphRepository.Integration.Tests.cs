@@ -131,6 +131,72 @@ namespace CosmosDb.Graph.Integration.Tests
 
         [Theory]
         [InlineData(1)]
+        [InlineData(10)]
+        public void GetEdgesWithSourceId__GettingEdgesWithSourceId__AssertExpectedNumberOfEdgesAreReturned(int numberOfExpectedEdges)
+        {
+            ClearGraph();
+
+            var rootVertex = VertexStub.CreateVertexStub();
+            var expectedVertexIds = new List<string>();
+
+            _sut.AddVertex(rootVertex).Wait();
+
+            for (var i = 0; i < numberOfExpectedEdges; i++)
+            {
+                var vertex = VertexStub.CreateVertexStub();
+                var edge = EdgeStub.CreateEdgeStub(rootVertex.id, vertex.id);
+
+                expectedVertexIds.Add(vertex.id);
+
+                _sut.AddVertex(vertex).Wait();
+                _sut.AddEdge(edge).Wait();
+            }
+
+            var edges = _sut.GetEdgesWithSourceId<EdgeStub>(rootVertex.id).Result;
+
+            Assert.Equal(expectedVertexIds.Count, edges.Count());
+
+            foreach (var edge in edges)
+            {
+                Assert.True(expectedVertexIds.Any(id => id == edge.TargetId));
+            }
+        }
+
+        [Theory]
+        [InlineData(1)]
+        [InlineData(10)]
+        public void GetEdgesWithTargetId__GettingEdgesWithTargetId__AssertExpectedNumberOfEdgesAreReturned(int numberOfExpectedEdges)
+        {
+            ClearGraph();
+
+            var rootVertex = VertexStub.CreateVertexStub();
+            var expectedVertexIds = new List<string>();
+
+            _sut.AddVertex(rootVertex).Wait();
+
+            for (var i = 0; i < numberOfExpectedEdges; i++)
+            {
+                var vertex = VertexStub.CreateVertexStub();
+                var edge = EdgeStub.CreateEdgeStub(vertex.id, rootVertex.id);
+
+                expectedVertexIds.Add(vertex.id);
+
+                _sut.AddVertex(vertex).Wait();
+                _sut.AddEdge(edge).Wait();
+            }
+
+            var edges = _sut.GetEdgesWithTargetId<EdgeStub>(rootVertex.id).Result;
+
+            Assert.Equal(expectedVertexIds.Count, edges.Count());
+
+            foreach (var edge in edges)
+            {
+                Assert.True(expectedVertexIds.Any(id => id == edge.SourceId));
+            }
+        }
+
+        [Theory]
+        [InlineData(1)]
         [InlineData(5)]
         [InlineData(10)]
         public void GetAllEdges__GettingAllEdges__AssertEdgesAreReturnedWithExpectedContent(int count)
