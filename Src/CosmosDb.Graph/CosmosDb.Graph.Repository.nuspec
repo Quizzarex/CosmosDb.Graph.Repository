@@ -9,11 +9,11 @@
         <authors>Kent Stark Olsen</authors>
         <owners>Kent Stark Olsen</owners>
 
-        <projectUrl>https://github.com/Quizzarex/CosmosDb.Graph.NetStandard</projectUrl>
-        <licenseUrl>https://github.com/Quizzarex/CosmosDb.Graph.NetStandard/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/Quizzarex/CosmosDb.Graph.Repository</projectUrl>
+        <licenseUrl>https://github.com/Quizzarex/CosmosDb.Graph.Repository/blob/master/LICENSE</licenseUrl>
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
 
-        <tags>cosmosdb graph repository dot net standard framework</tags>
+        <tags>cosmosdb graph repository dot net core standard framework</tags>
 
         <dependencies>
             <group targetFramework="net461">
