@@ -1,15 +1,13 @@
-# CosmosDb.Graph.NetStandard
-A light-weight .Net Standard/Framework library for CosmosDb graph databases
+# CosmosDb.Graph.Repository
+A light-weight .Net Standard/Framework library for CosmosDb graph databases.
 
 ## Overview
-This light-weight library was written to make a strongly typed graph with respect to vertex and edge elements inside the graph. It allow developers to make simple POGO classes which is then serialized/deserialized by the library for convinient write/read operations to the graph. The library supports all the CRUD operations on vertices and edges. In this alpha version of the library, lists, sets, enums and other complex types are not supported by the serialization/deserialization mechanics.
+This light-weight library was written to make a strongly typed graph with respect to vertex and edge elements inside the graph. It allow developers to make simple POCO classes which is then serialized/deserialized by the library for convinient write/read operations to the graph. The library supports all the CRUD operations on vertices and edges, including traversal of vertices. In this alpha version of the library, lists, sets, enums and other complex types are not supported by the serialization/deserialization mechanics.
 
-Requirements:
-+ .NET Framework 4.6.1
-+ .NET Standard 1.6
+Requires either .NET Framework 4.6.1 or .NET Standard 1.6
 
 ## Installation
-CosmosDb.Graph.Repository nuget can be retrieved from nuget.org
+CosmosDb.Graph.Repository nuget can be [retrieved](https://www.nuget.org/packages/CosmosDb.Graph.Repository/1.0.0-alpha "Get CosmosDb.Graph.Repository @ nuget.org") from nuget.org
 
 ## Usage
 The design of this library is very simple and serves to deliver flexibility for the developer. The main class' of this library is the abstract `GraphRepository` class which implements the basic repository CRUD operations and methods for traversal of vertices. The two other building blocks in this library are the `VertexBase` and the `EdgeBase` classes, which serves as base for either vertex or edge elements in the repository.
