@@ -84,8 +84,8 @@ var dbConnection = CosmosDbConnection.CreateCosmosDbConnection(
 var graph = new UserGroupRepository(dbConnection, new GremlinQueryProvider(), new VertexConverter(), new EdgeConverter());
 ```
 
-## GraphRepository documentation
-This section provides a brief description on class methods in 
+## GraphRepository description
+This section provides a brief description on class methods in the abstract `GraphRepository` class.
 
 + `protected GraphRepository(ICosmosDbConnection cosmosDbConnection, IGremlinQueryProvider gremlinQueryProvider, IVertexConverter vertexConverter, IEdgeConverter edgeConverter)`
 
