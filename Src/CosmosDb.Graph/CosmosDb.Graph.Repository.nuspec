@@ -3,7 +3,7 @@
     
     <metadata>
         <id>CosmosDb.Graph.Repository</id>
-        <version>1.0.0-alpha</version>
+        <version>#{Build.BuildNumber}#</version>
         <copyright>Copyright (c) 2017 Kent Stark Olsen</copyright>
         <description>A light-weight .Net Standard/Framework library for CosmosDb graph repositories</description>
         <authors>Kent Stark Olsen</authors>
