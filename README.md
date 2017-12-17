@@ -2,7 +2,9 @@
 A light-weight .Net Standard/Framework library for CosmosDb graph databases.
 
 ![Build status](https://quizzarex.visualstudio.com/_apis/public/build/definitions/dd53a0f6-afa4-4279-b051-b592aef8424d/1/badge "Build Status")
+
 ![Nuget version](https://img.shields.io/nuget/v/CosmosDb.Graph.Repository.svg "Nuget Version")
+![Nuget download count](https://img.shields.io/nuget/dt/CosmosDb.Graph.Repository.svg "Nuget Download Count")
 
 ## Overview
 This light-weight library was written to make a strongly typed graph with respect to vertex and edge elements inside the graph. It allow developers to make simple POCO classes which is then serialized/deserialized by the library for convinient write/read operations to the graph. The library supports all the CRUD operations on vertices and edges, including traversal of vertices. In this alpha version of the library, lists, sets, enums and other complex types are not supported by the serialization/deserialization mechanics.
