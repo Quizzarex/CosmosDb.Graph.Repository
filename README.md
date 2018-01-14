@@ -84,6 +84,19 @@ var dbConnection = CosmosDbConnection.CreateCosmosDbConnection(
 var graph = new UserGroupRepository(dbConnection, new GremlinQueryProvider(), new VertexConverter(), new EdgeConverter());
 ```
 
+The connection created in the previous example is creating a connection to the local Cosmos DB emulator, the factory method assumes a trhoughput of 400 RU/s, connection mode is `Direct` and the protocol is set to be `Tcp`. The assumptions about mode and protocol is due to the performance tips mentioned [here @ microsoft.com](https://docs.microsoft.com/da-dk/azure/cosmos-db/performance-tips "Performance tips for Azure Cosmos DB and .NET @ Microsoft.com"). [This issue report](https://github.com/Azure/azure-documentdb-dotnet/issues/185 "Azure/azure-documentdb-dotnet @ github.com") @ github.com states that the connection mode `Direct` is bugged for local emulator and will cause a `ServiceUnavailableException`. The following example show how to work around this issue for local development and testing.
+
+```csharp
+var dbConnection = CosmosDbConnection.CreateCosmosDbConnection(
+    "https://localhost:8081",
+    "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
+    "DatabaseName",
+    "GraphName",
+    throughput: 400,
+    connectionMode: ConnectionMode.Gateway,
+    protocol: Protocol.Tcp);
+```
+
 ## GraphRepository description
 This section provides a brief description on class methods in the abstract `GraphRepository` class.
 
