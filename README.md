@@ -1,3 +1,5 @@
+NOTE: Development discontinued!
+
 # CosmosDb.Graph.Repository
 A light-weight .Net Standard/Framework library for CosmosDb graph databases.
 
